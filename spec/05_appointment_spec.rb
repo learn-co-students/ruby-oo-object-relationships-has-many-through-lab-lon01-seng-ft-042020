@@ -6,9 +6,9 @@ describe "Appointment" do
     it "knows about all appointments that have been created" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
-      doctor_who.new_appointment(hevydevy, "Friday, January 32nd")
-      appointment = doctor_who.new_appointment(hevydevy, "Caturday, January Purrty2nd")
-      doctor_who.new_appointment(hevydevy, "Satunday, January 34nd")
+      doctor_who.new_appointment(hevydevy, "Friday, January 22nd")
+      appointment = doctor_who.new_appointment(hevydevy, "Saturday, January 22nd")
+      doctor_who.new_appointment(hevydevy, "Saturday, January 24nd")
 
       expect(Appointment.all).to include(appointment)
     end
@@ -19,7 +19,7 @@ describe "Appointment" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
 
-      expect{Appointment.new("Friday, January 32nd", hevydevy, doctor_who)}.to_not raise_error
+      expect{Appointment.new("Friday, January 22nd", hevydevy, doctor_who)}.to_not raise_error
     end
   end
 
@@ -27,7 +27,7 @@ describe "Appointment" do
     it "belongs to a patient" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
-      appointment = doctor_who.new_appointment(hevydevy, "Friday, January 32nd")
+      appointment = doctor_who.new_appointment(hevydevy, "Friday, January 22nd")
       expect(appointment.patient).to eq(hevydevy)
     end
   end
@@ -36,7 +36,7 @@ describe "Appointment" do
     it "belongs to a doctor" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
-      appointment = doctor_who.new_appointment(hevydevy, "Friday, January 32nd")
+      appointment = doctor_who.new_appointment(hevydevy, "Friday, January 22nd")
       expect(appointment.doctor).to eq(doctor_who)
     end
   end
